@@ -1,11 +1,16 @@
 int windowSize = 500;
 Spaceship myShip;
 Stars myStars;
+Asteroid[] asteroids;
 public void setup() 
 {
     size(500,500);
     myShip = new Spaceship(250,250);
     myStars = new Stars(50);
+	asteroids = new Asteroid[10];
+	for (int i = 0; i<10; i++){
+		asteroids[i] = new Asteroid((int)(Math.random()*500), (int)(Math.random()*500));
+		}
 }
 void draw() 
 {
@@ -13,6 +18,10 @@ void draw()
     myShip.show();
     myShip.move();
     myStars.show();
+	for (int i = 0; i<10; i++){
+	asteroids[i].move();
+	asteroids[i].show();
+	}
 }
 public void keyPressed()
 {
